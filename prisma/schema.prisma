@@ -1,0 +1,33 @@
+// prisma/schema.prisma
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider  = "postgresql"
+  url       = env("DATABASE_URL")
+  directUrl = env("DIRECT_URL")
+}
+
+// 1. We need this table for the AI and duplicate detection
+model ImageRegistry {
+  id          String   @id @default(uuid())
+  hash        String   @unique
+  creatorName String
+  userId      String?
+  createdAt   DateTime @default(now())
+}
+
+// 2. We need this table for generating the final certificate page
+model Certificate {
+  id            String   @id @default(uuid())
+  certificateId String   @unique
+  fileName      String
+  imageHash     String
+  title         String   @default("")
+  creatorName   String   @default("")
+  description   String   @default("")
+  location      String   @default("")
+  dateTaken     String   @default("")
+  createdAt     DateTime @default(now())
+}

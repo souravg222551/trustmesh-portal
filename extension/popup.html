@@ -1,0 +1,112 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <style>
+    body {
+      width: 320px;
+      margin: 0;
+      font-family: 'Segoe UI', system-ui, sans-serif;
+      background-color: #0f172a; /* Slate 900 */
+      color: #f8fafc;
+    }
+    .header {
+      background-color: #1e293b; /* Slate 800 */
+      padding: 16px;
+      border-bottom: 1px solid #334155;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+    .logo {
+      width: 28px;
+      height: 28px;
+      background-color: #3b82f6;
+      border-radius: 6px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: bold;
+      font-size: 16px;
+    }
+    .title {
+      font-size: 16px;
+      font-weight: 600;
+      margin: 0;
+    }
+    .content {
+      padding: 20px;
+    }
+    .status-card {
+      background-color: #1e293b;
+      border-radius: 8px;
+      padding: 16px;
+      margin-bottom: 20px;
+      border: 1px solid #334155;
+    }
+    .status-header {
+      font-size: 12px;
+      color: #94a3b8;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 8px;
+    }
+    .status-value {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 18px;
+      font-weight: 600;
+      color: #22c55e; /* Green */
+    }
+    .pulse {
+      width: 12px;
+      height: 12px;
+      background-color: #22c55e;
+      border-radius: 50%;
+      box-shadow: 0 0 10px #22c55e;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.7); }
+      70% { box-shadow: 0 0 0 10px rgba(34, 197, 94, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+    }
+    .btn {
+      display: block;
+      width: 100%;
+      padding: 12px;
+      background-color: #3b82f6;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      font-size: 14px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.2s;
+    }
+    .btn:hover {
+      background-color: #2563eb;
+    }
+  </style>
+</head>
+<body>
+  <div class="header">
+    <div class="logo">TM</div>
+    <h1 class="title">TrustMesh Sentinel</h1>
+  </div>
+  <div class="content">
+    <div class="status-card">
+      <div class="status-header">Network Status</div>
+      <div class="status-value">
+        <div class="pulse"></div>
+        Active & Scanning
+      </div>
+    </div>
+    <button class="btn" id="openPortalBtn">Launch Portal</button>
+  </div>
+  
+  <script src="popup.js"></script> 
+</body>
+</html>
